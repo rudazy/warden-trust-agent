@@ -1,0 +1,48 @@
+{
+  "name": "warden-trust-agent",
+  "version": "1.0.0",
+  "description": "AI-powered trust and reputation scoring agent for the Warden ecosystem. Uses EigenTrust algorithms and multi-hop graph traversal to score wallets, agents, and contracts across chains.",
+  "main": "dist/agent.js",
+  "scripts": {
+    "build": "tsc",
+    "agent": "node dist/agent.js",
+    "dev": "tsx src/agent.ts",
+    "start": "npm run build && npm run agent",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "warden",
+    "trust",
+    "reputation",
+    "eigentrust",
+    "ai-agent",
+    "web3",
+    "a2a",
+    "langgraph"
+  ],
+  "author": "rudazy",
+  "license": "MIT",
+  "dependencies": {
+    "@wardenprotocol/agent-kit": "latest",
+    "@langchain/langgraph-sdk": "latest",
+    "@anthropic-ai/sdk": "^0.39.0",
+    "openai": "^4.77.0",
+    "viem": "^2.21.0",
+    "graphql-request": "^7.1.0",
+    "graphql": "^16.9.0",
+    "neo4j-driver": "^5.27.0",
+    "dotenv": "^16.4.7",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "tsx": "^4.19.0",
+    "vitest": "^2.1.0",
+    "@types/node": "^22.10.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
