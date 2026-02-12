@@ -134,13 +134,13 @@ Respond naturally to the user's question using this data. Be concise but informa
   /**
    * Low-level completion call
    */
-  private async complete(prompt: string, role: "user" | "system"): Promise<string> {
+  private async complete(prompt: string, _role: "user" | "system"): Promise<string> {
     if (this.provider === "openai" && this.openai) {
       const response = await this.openai.chat.completions.create({
         model: this.model,
         messages: [
           { role: "system", content: SYSTEM_PROMPT },
-          { role, content: prompt },
+          { role: "user", content: prompt },
         ],
         temperature: 0.3,
         max_tokens: 1024,
@@ -152,7 +152,7 @@ Respond naturally to the user's question using this data. Be concise but informa
       const response = await this.anthropic.messages.create({
         model: this.model,
         system: SYSTEM_PROMPT,
-        messages: [{ role, content: prompt }],
+        messages: [{ role: "user", content: prompt }],
         max_tokens: 1024,
       });
       const block = response.content[0];

@@ -212,9 +212,9 @@ async function main() {
             "Score any wallet, agent, or contract address for trustworthiness. Combines graph-based trust, attestation data, and on-chain activity into a 0-100 score.",
           tags: ["trust", "reputation", "scoring", "web3"],
           examples: [
-            "Is 0x742d35Cc6634C0532925a3b844Bc9e7595f2bD18 trustworthy?",
-            "Score this wallet: 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
-            "Check the reputation of 0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B",
+            { description: "Is 0x742d35Cc6634C0532925a3b844Bc9e7595f2bD18 trustworthy?" },
+            { description: "Score this wallet: 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045" },
+            { description: "Check the reputation of 0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B" },
           ],
         },
         {
@@ -224,8 +224,8 @@ async function main() {
             "Find the shortest trust path between two addresses in the trust graph. Shows how addresses are connected through chains of trust.",
           tags: ["trust", "path", "graph", "connections"],
           examples: [
-            "Trust path from 0xabc... to 0xdef...",
-            "How are these two wallets connected?",
+            { description: "Trust path from 0xabc... to 0xdef..." },
+            { description: "How are these two wallets connected?" },
           ],
         },
         {
@@ -235,8 +235,8 @@ async function main() {
             "Analyze the trust connections of an address — who trusts them and who they trust.",
           tags: ["trust", "network", "connections"],
           examples: [
-            "Who trusts 0x742d35Cc6634C0532925a3b844Bc9e7595f2bD18?",
-            "Show connections for this address",
+            { description: "Who trusts 0x742d35Cc6634C0532925a3b844Bc9e7595f2bD18?" },
+            { description: "Show connections for this address" },
           ],
         },
       ],

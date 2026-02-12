@@ -21,7 +21,7 @@ import type {
 } from "../types/index.js";
 
 const DEFAULT_CONFIG: EigenTrustConfig = {
-  maxIterations: 50,
+  maxIterations: 200,
   convergenceThreshold: 0.0001,
   preTrustedWeight: 0.1,
   decayFactor: 0.85,

@@ -49,7 +49,7 @@ export class OnChainAnalyzer {
         client: createPublicClient({
           chain: base,
           transport: http(rpcUrls.base),
-        }),
+        }) as unknown as PublicClient,
       });
     }
 
@@ -68,7 +68,7 @@ export class OnChainAnalyzer {
             },
           },
           transport: http(rpcUrls.warden),
-        }),
+        }) as unknown as PublicClient,
       });
     }
 
