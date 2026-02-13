@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  neo4j:
+    image: neo4j:5-community
+    container_name: trust-graph-db
+    environment:
+      NEO4J_AUTH: neo4j/trustagent123
+      NEO4J_PLUGINS: '["apoc"]'
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - neo4j_data:/data
+    healthcheck:
+      test: ["CMD", "cypher-shell", "-u", "neo4j", "-p", "trustagent123", "RETURN 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  agent:
+    build: .
+    container_name: warden-trust-agent
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      NEO4J_URI: bolt://neo4j:7687
+      NEO4J_USER: neo4j
+      NEO4J_PASSWORD: trustagent123
+      PORT: 3000
+      AGENT_URL: http://localhost:3000
+    depends_on:
+      neo4j:
+        condition: service_healthy
+
+volumes:
+  neo4j_data:
